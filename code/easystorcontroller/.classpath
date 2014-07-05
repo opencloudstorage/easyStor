@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry excluding="framework/" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/Sun JDK 1.6.0_13"/>
+	<classpathentry kind="lib" path="lib/openutils.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
