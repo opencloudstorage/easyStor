@@ -1,13 +1,15 @@
-package com.easystor.fileop;
+package com.easystor.fileop.hdfs;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.antilope.openutils.base.DateUtils;
 import com.antilope.openutils.protocol.http.HttpUtils;
-import com.easystor.common.Yns3Constants;
+import com.easystor.common.EasystorConstants;
+import com.easystor.fileop.AbsRESTFileOprate;
 
-public class RestGetOprate extends AbsRESTFileOprate{
+public class GetFile extends AbsRESTFileOprate{
 
 	@Override
 	public String execute() {
@@ -17,7 +19,7 @@ public class RestGetOprate extends AbsRESTFileOprate{
 			params.putAll(paraMap);
 			params.remove("PATH");
 			String path = paraMap.get("PATH");
-			String getUrl = Yns3Constants.HADOOP_REST_HOME+path+"?"+params2String(params);
+			String getUrl = EasystorConstants.HADOOP_REST_HOME+path+"?"+params2String(params);
 			response = HttpUtils.doGet(getUrl);
 			System.out.println("["+DateUtils.sysTime+"]  HttpGet ·µ»Ø £º"+response);
 		} catch (Exception e) {

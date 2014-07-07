@@ -1,13 +1,14 @@
-package com.easystor.fileop;
+package com.easystor.fileop.hdfs;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import com.antilope.openutils.base.DateUtils;
 import com.antilope.openutils.protocol.http.HttpUtils;
-import com.easystor.common.Yns3Constants;
+import com.easystor.common.EasystorConstants;
+import com.easystor.fileop.AbsRESTFileOprate;
 
-public class RestDeleteOprate extends AbsRESTFileOprate{
+public class RestPutOprate extends AbsRESTFileOprate{
 
 	@Override
 	public String execute() {
@@ -17,13 +18,12 @@ public class RestDeleteOprate extends AbsRESTFileOprate{
 			params.putAll(paraMap);
 			params.remove("PATH");
 			String path = paraMap.get("PATH");
-			String deleteUrl = Yns3Constants.HADOOP_REST_HOME+path+"?"+params2String(params);
-			response = HttpUtils.doDelete(deleteUrl);
-			System.out.println("["+DateUtils.sysTime+"]  HttpDelete ·µ»Ø £º"+response);
+			String putUrl = EasystorConstants.HADOOP_REST_HOME+path+"?"+params2String(params);
+			response = HttpUtils.doGet(putUrl);
+			System.out.println("["+DateUtils.sysTime+"]  HttpPut ·µ»Ø £º"+response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return response;
 	}
-
 }

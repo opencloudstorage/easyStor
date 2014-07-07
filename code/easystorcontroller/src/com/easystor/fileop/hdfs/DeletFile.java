@@ -1,4 +1,6 @@
-package com.easystor.fileop;
+package com.easystor.fileop.hdfs;
+
+import com.easystor.fileop.AbsRESTFileOprate;
 
 public class DeletFile extends AbsRESTFileOprate{
 

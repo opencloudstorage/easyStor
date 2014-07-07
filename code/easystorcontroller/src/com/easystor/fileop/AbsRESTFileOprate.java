@@ -3,7 +3,11 @@ package com.easystor.fileop;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-
+/**
+ * 
+ * @author sh
+ *
+ */
 public abstract class AbsRESTFileOprate  implements FileOprate{
 	
 	public Map<String,String> paraMap;

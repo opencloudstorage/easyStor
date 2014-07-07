@@ -1,4 +1,4 @@
-package com.easystor.fileop;
+package com.easystor.fileop.hdfs;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -6,7 +6,8 @@ import java.util.Map;
 
 import com.antilope.openutils.base.DateUtils;
 import com.antilope.openutils.protocol.http.HttpUtils;
-import com.easystor.common.Yns3Constants;
+import com.easystor.common.EasystorConstants;
+import com.easystor.fileop.AbsRESTFileOprate;
 
 public class UploadFile extends AbsRESTFileOprate{
 /**
@@ -28,7 +29,7 @@ public class UploadFile extends AbsRESTFileOprate{
 			params.remove("LOCAL_FILE");
 			
 			String path = paraMap.get("PATH");
-			String masterPutUrl = Yns3Constants.HADOOP_REST_HOME+path;
+			String masterPutUrl = EasystorConstants.HADOOP_REST_HOME+path;
 			String  datanodePutUrl= HttpUtils.doPutHeder(masterPutUrl, params,"Location");
 			System.out.println("["+DateUtils.sysTime+"] master 返回  dataNode 存储路径 ："+datanodePutUrl);
 			//请求master 获取应该上传的 datenode路劲
