@@ -8,7 +8,11 @@ import com.antilope.openutils.base.DateUtils;
 import com.antilope.openutils.protocol.http.HttpUtils;
 import com.easystor.common.EasystorConstants;
 import com.easystor.fileop.AbsRESTFileOprate;
-
+/**
+ * 文件上传
+ * @author sh
+ *
+ */
 public class UploadFile extends AbsRESTFileOprate{
 /**
  * 	Step 1: 

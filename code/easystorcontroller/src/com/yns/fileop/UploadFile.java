@@ -20,6 +20,7 @@ public class UploadFile extends HadoopRestOprate{
 	*/
 	@Override
 	public String execute() {
+		
 		String response = "";	
 		try {
 			Map<String,String> params = new HashMap<String, String>();
@@ -33,7 +34,8 @@ public class UploadFile extends HadoopRestOprate{
 			String  datanodePutUrl= HttpUtils.doPutHeder(masterPutUrl, params,"Location");
 			//请求master 获取应该上传的 datenode路劲
 			String localFile = paraMap.get("LOCAL_FILE");
-			datanodePutUrl = datanodePutUrl.replace("slave2", "172.16.128.109").replace("localhost", "172.16.128.106").replace("slave1", "172.16.128.107").replace("slave3", "172.16.128.114")+"&user.name=hadoop&overwrite=true";
+			datanodePutUrl = transDataNodePutUrl(datanodePutUrl)+"&user.name=hadoop&overwrite=true";
+//			datanodePutUrl = datanodePutUrl.replace("slave2", "172.16.128.109").replace("localhost", "172.16.128.106").replace("slave1", "172.16.128.107").replace("slave3", "172.16.128.114")+"&user.name=hadoop&overwrite=true";
 			System.out.println("["+DateUtils.sysTime+"] master 返回  dataNode 存储路径 ："+datanodePutUrl);
 			response = HttpUtils.doPut(datanodePutUrl, null, localFile);
 			System.out.println("["+DateUtils.sysTime+"] "+localFile+" 存储结果返回 ："+response);
